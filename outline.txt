@@ -1,0 +1,12 @@
+Objects
+
+Object
+
+Departments
+
+Search
+https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers
+https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sunflowers
+https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat
+https://collectionapi.metmuseum.org/public/collection/v1/search?isOnView=true&q=sunflower
+https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q=french
