@@ -9,23 +9,23 @@
 </head>
 
 <body>
-  <fieldset>
-    <legend>Filters</legend>
-    <ul>
-      <li>
-        <label for="images">Has Images</label>
-        <input type="checkbox" id="hasImages" name="images" value="hasImages" checked>        
-      </li>
-      <li>
-        <label for="highlight">Highlight</label>
-        <input type="checkbox" id="isHighlight" name="highlight" value="isHighlight" checked>        
-      </li>
-    </ul>
-  </fieldset>  
-  <form action="" method="GET">
-    <input type="text" id="searchBar" placeholder="search" name="search" />
-    <button type="submit">Submit</button>
+
+  <form id="formElem" action="https://collectionapi.metmuseum.org/public/collection/v1/search" method="GET">
+    <div>
+      <label for="isHighlight">Popular and important</label>
+      <input type="checkbox" id="isHighlight" name="isHighlight">  
+    </div>
+    <div>
+      <label for="q">Search</label>
+      <input name="q" id="query">
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
   </form>
+
+<!--   https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=sunflowers
+  www.foo.com/?say=Hi&to=Mom -->
   <script src="script.js"></script>
 </body>
 
