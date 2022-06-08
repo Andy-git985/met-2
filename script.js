@@ -1,19 +1,21 @@
-const formElem = document.querySelector('#formElem')
-const isHighlight = document.querySelector('#isHighlight')
-  
-isHighlight.addEventListener('change', function() {
+const formElem = document.querySelector('#formElem');
+const isHighlight = document.querySelector('#isHighlight');
+
+isHighlight.addEventListener('change', function () {
   if (this.checked) {
-    this.setAttribute("value", "true")
+    this.setAttribute('value', 'true');
   } //else {
-  //   this.setAttribute("value", "false")  
+  //   this.setAttribute("value", "false")
   // }
 });
 
-
-document.addEventListener('submit', (e) => {
-  e.preventDefault()
-  console.log(formElem)
-  for (var pair of Object.entries(formElem)) {
-    console.log(pair[0] + ': ' + pair[1].value);
-  }
-})
+formElem.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const queryString = String(
+    new URLSearchParams(new FormData(document.forms[0]))
+  );
+  const url = `${formElem.action}?${queryString}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+});
