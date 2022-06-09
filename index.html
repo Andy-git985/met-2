@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>replit</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js" defer></script>
+    <title>replit</title>
   </head>
 
   <body>
@@ -15,15 +16,20 @@
     >
       <div>
         <label for="isHighlight">Popular and important</label>
-        <input type="checkbox" id="isHighlight" name="isHighlight" />
+        <input
+          type="checkbox"
+          id="isHighlight"
+          class="checkbox"
+          name="isHighlight"
+        />
       </div>
       <div>
         <label for="title">Search title field</label>
-        <input type="checkbox" id="title" name="title" />
+        <input type="checkbox" id="title" class="checkbox" name="title" />
       </div>
       <div>
         <label for="tags">Search tags</label>
-        <input type="checkbox" id="tags" name="tags" />
+        <input type="checkbox" id="tags" class="checkbox" name="tags" />
       </div>
 
       <!-- Need to work on this possible drop dowm menu 
@@ -33,14 +39,59 @@
         <label for="departmentId">Deaprtment Id</label>
         <input name="q" id="query" />
       </div> -->
+      <div>
+        <label for="departmentId">Choose a department:</label>
+        <select name="departmentId" id="departmentId">
+          <option value="none">Search All</option>
+          <option value="american-decorative-arts">
+            American Decorative Arts
+          </option>
+          <option value="ancient-near-eastern-art">
+            Ancient Near Eastern Art
+          </option>
+          <option value="arms-and-armor">Arms and Armor</option>
+          <option value="arts-of-africa,-oceania,-and-the-americas">
+            Arts of Africa, Oceania, and the Americas
+          </option>
+          <option value="asian-art">Asian Art</option>
+          <option value="the-cloisters">The Cloisters</option>
+          <option value="the-costume-institute">The Costume Institute</option>
+          <option value="drawings-and-prints">Drawings and Prints</option>
+          <option value="egyptian-art">Egyptian Art</option>
+          <option value="european-paintings">European Paintings</option>
+          <option value="european-sculpture-and-decorative-arts">
+            European Sculpture and Decorative Arts
+          </option>
+          <option value="greek-and-roman-art">Greek and Roman Art</option>
+          <option value="islamic-art">Islamic Art</option>
+          <option value="the-robert-lehman-collection">
+            The Robert Lehman Collection
+          </option>
+          <option value="the-libraries">The Libraries</option>
+          <option value="medieval-art">Medieval Art</option>
+          <option value="musical-instruments">Musical Instruments</option>
+          <option value="photographs">Photographs</option>
+          <option value="modern-art">Modern Art</option>
+        </select>
+      </div>
 
       <div>
         <label for="isOneView">On view at museum</label>
-        <input type="checkbox" id="isOneView" name="isOneView" />
+        <input
+          type="checkbox"
+          id="isOneView"
+          class="checkbox"
+          name="isOneView"
+        />
       </div>
       <div>
         <label for="artistOrCulture">Search artist name or culture</label>
-        <input type="checkbox" id="artistOrCulture" name="artistOrCulture" />
+        <input
+          type="checkbox"
+          id="artistOrCulture"
+          class="checkbox"
+          name="artistOrCulture"
+        />
       </div>
       <!-- Medium string with multiple values -->
       <!-- <div>
@@ -50,7 +101,12 @@
 
       <div>
         <label for="hasImages">Images available</label>
-        <input type="checkbox" id="hasImages" name="hasImages" />
+        <input
+          type="checkbox"
+          id="hasImages"
+          class="checkbox"
+          name="hasImages"
+        />
       </div>
 
       <!-- geoLocation with multiple values | -->
@@ -76,6 +132,10 @@
 
     <!--   https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=sunflowers
   www.foo.com/?say=Hi&to=Mom -->
-    <script src="script.js"></script>
+
+    <div class="flex">
+      <div class="message"></div>
+      <button type="button" id="display" class="hidden">Display Images</button>
+    </div>
   </body>
 </html>
