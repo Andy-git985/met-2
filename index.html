@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+  <body>
+    <form
+      id="formElem"
+      action="https://collectionapi.metmuseum.org/public/collection/v1/search"
+      method="GET"
+    >
+      <div>
+        <label for="isHighlight">Popular and important</label>
+        <input type="checkbox" id="isHighlight" name="isHighlight" />
+      </div>
+      <div>
+        <label for="title">Search title field</label>
+        <input type="checkbox" id="title" name="title" />
+      </div>
+      <div>
+        <label for="tags">Search tags</label>
+        <input type="checkbox" id="tags" name="tags" />
+      </div>
 
-<body>
+      <!-- Need to work on this possible drop dowm menu 
+      https://collectionapi.metmuseum.org/public/collection/v1/departments
+    -->
+      <!-- <div>
+        <label for="departmentId">Deaprtment Id</label>
+        <input name="q" id="query" />
+      </div> -->
 
-  <form id="formElem" action="https://collectionapi.metmuseum.org/public/collection/v1/search" method="GET">
-    <div>
-      <label for="isHighlight">Popular and important</label>
-      <input type="checkbox" id="isHighlight" name="isHighlight">  
-    </div>
-    <div>
-      <label for="q">Search</label>
-      <input name="q" id="query">
-    </div>
-    <div>
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+      <div>
+        <label for="isOneView">On view at museum</label>
+        <input type="checkbox" id="isOneView" name="isOneView" />
+      </div>
+      <div>
+        <label for="artistOrCulture">Search artist name or culture</label>
+        <input type="checkbox" id="artistOrCulture" name="artistOrCulture" />
+      </div>
+      <!-- Medium string with multiple values -->
+      <!-- <div>
+        <label for="medium">Medium</label>
+        <input name="medium" id="medium" />
+      </div> -->
 
-<!--   https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=sunflowers
+      <div>
+        <label for="hasImages">Images available</label>
+        <input type="checkbox" id="hasImages" name="hasImages" />
+      </div>
+
+      <!-- geoLocation with multiple values | -->
+      <!-- <div>
+        <label for="geoLocation">Geolocation</label>
+        <input name="geoLocation" id="geoLocation" />
+      </div> -->
+
+      <!-- Returns objects that match the query and fall between the dateBegin and dateEnd parameters. Examples include: dateBegin=1700&dateEnd=1800 for objects from 1700 A.D. to 1800 A.D., dateBegin=-100&dateEnd=100 for objects between 100 B.C. to 100 A.D. -->
+      <!-- <div>
+        <label for="dateBeginEnd">Dates</label>
+        <input name="dateBeginEnd" id="dateBeginEnd" />
+      </div> -->
+      <div>
+        <label for="q">Search</label>
+        <input name="q" id="query" />
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <!--   https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q=sunflowers
   www.foo.com/?say=Hi&to=Mom -->
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
