@@ -1,61 +1,17 @@
 const formElem = document.querySelector('#formElem');
-const isHighlight = document.querySelector('#isHighlight');
-const title = document.querySelector('#title');
-const tags = document.querySelector('#tags');
-// department Id placeholder
-const isOnView = document.querySelector('#isOnView');
-const artistOrCulture = document.querySelector('#artistOrCulture');
-// medium placeholder
-const hasImages = document.querySelector('#hasImages');
-// geoLocation placeholder
-// dateBeginENd placeholder
+const checkbox = document.querySelectorAll('.checkbox');
+const message = document.querySelector('.message');
+const display = document.querySelector('#display');
 
-isHighlight.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  } //else {
-  //   this.setAttribute("value", "false")
-  // }
-});
+checkbox.forEach((e) =>
+  e.addEventListener('change', function () {
+    if (this.checked) {
+      this.setAttribute('value', 'true');
+    }
+  })
+);
 
-title.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  }
-});
-
-tags.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  }
-});
-
-// department id placeholder
-
-isOnView.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  }
-});
-
-artistOrCulture.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  }
-});
-
-//  medium placeholder
-
-hasImages.addEventListener('change', function () {
-  if (this.checked) {
-    this.setAttribute('value', 'true');
-  }
-});
-
-// geoLocation placeholder
-
-// dateBeginENd placeholder
-
+let objectIDs;
 formElem.addEventListener('submit', async (e) => {
   e.preventDefault();
   const queryString = String(
@@ -66,4 +22,27 @@ formElem.addEventListener('submit', async (e) => {
   const response = await fetch(url);
   const data = await response.json();
   console.log(data);
+  // global
+  objectIDs = data.objectIDs;
+  message.textContent = `${objectIDs.length} entries found`;
+  if (objectIDs.length) {
+    display.classList.toggle('hidden');
+  }
 });
+
+display.addEventListener('click', () => {
+  objectIDs.forEach(async (objectID) => {
+    const objUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
+    const response = await fetch(objUrl);
+    const data = await response.json();
+    if (data.isPublicDomain) {
+      console.log(data);
+    }
+  });
+});
+
+function createElement(elem, ...cssClass) {
+  const element = document.createElement(elem);
+  cssClass.forEach((item) => element.classList.add(item));
+  return element;
+}
